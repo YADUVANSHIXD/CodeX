@@ -24,6 +24,3 @@ Pillow
 speedtest-cli
 psutil
 shortzy
-aiohttp
-Flask
-gunicorn
