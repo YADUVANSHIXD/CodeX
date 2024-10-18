@@ -52,7 +52,7 @@ User - {}"""
 ❗️ ʟᴀɴɢᴜᴀɢᴇ - {languages}</b>
 """
 
-    FILE_CAPTION = """<b><a href=https://telegram.me/RahulReviewsYT>{file_name} </a></b>
+    FILE_CAPTION = """<b><a href=https://telegram.me/B4UMovieHouse>{file_name} </a></b>
 
 <i>ᴘʟᴇᴀsᴇ ꜰᴏʀᴡᴀʀᴅ ᴛʜɪs ꜰɪʟᴇs ᴛᴏ ᴛʜᴇ sᴀᴠᴇᴅ ᴍᴇssᴀɢᴇ ᴀɴᴅ ᴄʟᴏsᴇ ᴛʜɪs ᴍᴇssᴀɢᴇ</i>"""
 
@@ -84,11 +84,11 @@ User - {}"""
 <code>/font hi how are you</code>"""
 
     PREMIUM_TEXT = """<b><i><blockquote>ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs  ♻️</blockquote>
-
-• 𝟷 ᴡᴇᴇᴋ  -  ₹𝟹𝟶
-• 𝟷 ᴍᴏɴᴛʜ  -  ₹𝟻𝟶
-• 𝟹 ᴍᴏɴᴛʜs  -  ₹𝟷𝟶𝟶
-• 𝟼 ᴍᴏɴᴛʜs  -  ₹𝟸𝟶𝟶
+# 𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿
+• 𝟷 ᴡᴇᴇᴋ  -  ₹𝟶𝟽
+• 𝟷 ᴍᴏɴᴛʜ  -  ₹𝟸𝟻
+• 𝟹 ᴍᴏɴᴛʜs  -  ₹𝟼𝟶
+• 𝟼 ᴍᴏɴᴛʜs  -  ₹𝟷𝟶𝟶
 
 •─────•─────────•─────•
 <blockquote>ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇs  🎁</blockquote>
@@ -104,7 +104,7 @@ User - {}"""
 •─────•─────────•─────•
 
 
-✨ ᴜᴘɪ ɪᴅ - <code>RahulReviews@UPI</code>
+✨ ᴜᴘɪ ɪᴅ - <code>pradeepyadav916114@oksbi</code>
 
 ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴘʟᴀɴ  /myplan
 
@@ -118,11 +118,11 @@ User - {}"""
 
 ›› sᴛᴇᴘ 𝟸 : ᴍᴀᴋᴇ <a href=https://telegram.me/{}</a> ᴀᴅᴍɪɴ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
 
-›› sᴛᴇᴘ 𝟹 : ᴍᴀᴋᴇ ᴀᴄᴄᴏᴜɴᴛ ᴏɴ <a href='https://tnshort.net/ref/devilofficial'>ᴛɴʟɪɴᴋ</a> ᴏʀ <a href='https://onepagelink.in/ref/Nobita'>ᴏɴᴇᴘᴀɢᴇʟɪɴᴋ</a>. [ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴜsᴇ ᴏᴛʜᴇʀ sʜᴏʀᴛɴᴇʀ ᴡᴇʙsɪᴛᴇ ]
+›› sᴛᴇᴘ 𝟹 : ᴍᴀᴋᴇ ᴀᴄᴄᴏᴜɴᴛ ᴏɴ <a href='https://publicearn.com/ref/Pradeepyadav'>Pᴜʙʟɪᴄ Eᴀʀɴ</a> ᴏʀ <a href='https://instantearn.in/ref/Pradeepyadav'>IɴꜱᴛᴀɴᴛEᴀʀɴ</a>. [ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴜsᴇ ᴏᴛʜᴇʀ sʜᴏʀᴛɴᴇʀ ᴡᴇʙsɪᴛᴇ ]
 
 ›› sᴛᴇᴘ 𝟺 : ɴᴏᴡ ꜱᴇᴛ ʏᴏᴜʀ ꜱʜᴏʀᴛɴᴇʀ, ᴛᴜᴛᴏʀɪᴀʟ, ꜰꜱᴜʙ ᴀɴᴅ ʟᴏɢ ᴄʜᴀɴɴᴇʟ.
 
-›› sᴛᴇᴘ 𝟻 : ꜰᴏʟʟᴏᴡ ᴛʜᴇsᴇ <a href='https://github.com/CodeXBots/Auto-Filter-Bot/blob/main/README.md'>ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ</a>.
+›› sᴛᴇᴘ 𝟻 : ꜰᴏʟʟᴏᴡ ᴛʜᴇsᴇ <a href='https://github.com/YaduvanshiXD'>ɪɴꜱᴛʀᴜᴄᴛɪᴏɴꜱ</a>.
 
 ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴠᴀʟᴜᴇꜱ ʙʏ /ginfo ᴄᴏᴍᴍᴀɴᴅ.
 
@@ -229,5 +229,5 @@ User - {}"""
 
 ❣️ 𝐷𝑜𝑛𝑎𝑡𝑖𝑜𝑛𝑠 𝑎𝑟𝑒 𝑟𝑒𝑎𝑙𝑙𝑦 𝑎𝑝𝑝𝑟𝑒𝑐𝑖𝑎𝑡𝑒𝑑 𝑖𝑡 ℎ𝑒𝑙𝑝𝑠 𝑖𝑛 𝑏𝑜𝑡 𝑑𝑒𝑣𝑒𝑙𝑜𝑝𝑚𝑒𝑛𝑡
 
-💖 𝐔𝐏𝐈 𝐈𝐃 : <code>RahulReviews@UPI</code>
+💖 𝐔𝐏𝐈 𝐈𝐃 : <code>Pradeep938@barodampay</code>
 """
