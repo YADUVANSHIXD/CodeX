@@ -1,4 +1,4 @@
-# © CodeXBots (Rahul)
+# ©pradeep
 from datetime import timedelta
 from asyncio import sleep 
 import pytz
