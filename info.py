@@ -30,7 +30,7 @@ DATABASE_URI2 = environ.get('DATABASE_URI2', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Yaduvanshi')
 LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1002470952565'))
-QR_CODE = environ.get('QR_CODE', 'https://envs.sh/Tsr.jpg')
+QR_CODE = environ.get('QR_CODE', 'https://envs.sh/T-5.jpg')
 
 #this vars is for when heroku or koyeb acc get banned, then change this vars as your file to link bot name
 BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002480353700'))
