@@ -33,8 +33,8 @@ LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1002470952565'))
 QR_CODE = environ.get('QR_CODE', 'https://envs.sh/T-5.jpg')
 
 #this vars is for when heroku or koyeb acc get banned, then change this vars as your file to link bot name
-BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002480353700'))
-URL = environ.get('URL', 'file-stream-bot-x9lm.onrender.com')
+BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002179479692'))
+URL = environ.get('URL', 'specified-ricky-pwvidyapeeth-fe32bd8d.koyeb.app')
 
 # verify system vars
 IS_VERIFY = is_enabled('IS_VERIFY', True)
