@@ -37,7 +37,7 @@ BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002179479692'))
 URL = environ.get('URL', 'specified-ricky-pwvidyapeeth-fe32bd8d.koyeb.app')
 
 # verify system vars
-IS_VERIFY = is_enabled('IS_VERIFY', True)
+IS_VERIFY = is_enabled('IS_VERIFY', False)
 LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-1002471108414'))
 TUTORIAL = environ.get("TUTORIAL", "https://t.me/How_to_open_movielink")
 TUTORIAL2 = environ.get("TUTORIAL2", "https://t.me/How_to_open_movielink")
