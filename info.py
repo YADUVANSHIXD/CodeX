@@ -33,7 +33,7 @@ LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1002470952565'))
 QR_CODE = environ.get('QR_CODE', 'https://envs.sh/T-5.jpg')
 
 #this vars is for when heroku or koyeb acc get banned, then change this vars as your file to link bot name
-BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002179479692'))
+BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002480353700'))
 URL = environ.get('URL', 'specified-ricky-pwvidyapeeth-fe32bd8d.koyeb.app')
 
 # verify system vars
@@ -43,12 +43,12 @@ TUTORIAL = environ.get("TUTORIAL", "https://t.me/How_to_open_movielink")
 TUTORIAL2 = environ.get("TUTORIAL2", "https://t.me/How_to_open_movielink")
 TUTORIAL3 = environ.get("TUTORIAL3", "https://t.me/How_to_open_movielink")
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://graph.org/file/45a270fc6a0a1c183c614.jpg")
-SHORTENER_API = environ.get("SHORTENER_API", "1dacaa27ce824e44b95f1b6a11939575205d1fa9")
-SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", "Instantearn.in")
-SHORTENER_API2 = environ.get("SHORTENER_API2", "90e29f189969e1041b47ae54be34cf46669e2908")
-SHORTENER_WEBSITE2 = environ.get("SHORTENER_WEBSITE2", "Publicearn.com")
-SHORTENER_API3 = environ.get("SHORTENER_API3", "e36fc95289f44c5b5af8ef6daa44dcf75ddaecd1")
-SHORTENER_WEBSITE3 = environ.get("SHORTENER_WEBSITE3", "Tryshort.in")
+SHORTENER_API = environ.get("SHORTENER_API", "597e5e39d64825dedf5b43361e9a57e5d1ab6be5")
+SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", "shortxlinks.com")
+SHORTENER_API2 = environ.get("SHORTENER_API2", "e36fc95289f44c5b5af8ef6daa44dcf75ddaecd1")
+SHORTENER_WEBSITE2 = environ.get("SHORTENER_WEBSITE2", "Tryshort.in")
+SHORTENER_API3 = environ.get("SHORTENER_API3", "1dacaa27ce824e44b95f1b6a11939575205d1fa9")
+SHORTENER_WEBSITE3 = environ.get("SHORTENER_WEBSITE3", "Instantearn.in")
 TWO_VERIFY_GAP = int(environ.get('TWO_VERIFY_GAP', "28800"))
 THREE_VERIFY_GAP = int(environ.get('THREE_VERIFY_GAP', "21600"))
 
