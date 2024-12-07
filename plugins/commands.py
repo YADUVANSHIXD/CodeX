@@ -29,7 +29,7 @@ async def start(client:Client, message):
         settings = await get_settings(grp_id)         
         verify_id_info = await db.get_verify_id_info(user_id, verify_id)
         if not verify_id_info or verify_id_info["verified"]:
-            await message.reply("<b>ʟɪɴᴋ ᴇxᴘɪʀᴇᴅ ᴛʀʏ ᴀɢᴀɪɴ...</b>")
+            await message.reply("<b>ʏᴏᴜ ᴀʀᴇ ᴀʟʀᴇᴀᴅʏ ᴠᴇʀɪꜰɪᴇᴅ ᴄʟɪᴄᴋ ᴏɴ ✅ ɢᴇᴛ ꜰɪʟᴇ ✅ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ.....</b>")
             return  
         ist_timezone = pytz.timezone('Asia/Kolkata')
         if await db.user_verified(user_id):
@@ -207,11 +207,11 @@ async def start(client:Client, message):
                 reply_markup=InlineKeyboardMarkup(btn)
             )
             all_files.append(dlt)
-        await asyncio.sleep(600)
+        await asyncio.sleep(10800)
         for dlt_file in all_files:
             await dlt_file.delete()
         t=await client.send_message(message.from_user.id, "<b>⚠️ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ꜰɪʟᴇ ɪs ᴅᴇʟᴇᴛᴇᴅ ᴛᴏ ᴀᴠᴏɪᴅ ᴄᴏᴘʏʀɪɢʜᴛ ɪɴ ʙᴏᴛ, ɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴀɢᴀɪɴ ᴛʜᴇɴ sᴇᴀʀᴄʜ ᴀɢᴀɪɴ ☺️</b>")
-        await asyncio.sleep(120)
+        await asyncio.sleep(300)
         await t.delete()
         return
 
@@ -260,10 +260,10 @@ async def start(client:Client, message):
         protect_content=settings['file_secure'],
         reply_markup=InlineKeyboardMarkup(btn)
     )
-    await asyncio.sleep(600)
+    await asyncio.sleep(10800)
     await d.delete()
     r = await message.reply_text("<b>⚠️ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ ꜰɪʟᴇ ɪs ᴅᴇʟᴇᴛᴇᴅ ᴛᴏ ᴀᴠᴏɪᴅ ᴄᴏᴘʏʀɪɢʜᴛ, ɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴀɢᴀɪɴ ᴛʜᴇɴ sᴇᴀʀᴄʜ ᴀɢᴀɪɴ ☺️</b>")
-    await asyncio.sleep(120)
+    await asyncio.sleep(300)
     await r.delete()
 
 @Client.on_message(filters.command('settings'))
@@ -370,7 +370,7 @@ async def save_caption(client, message):
     try:
         caption = message.text.split(" ", 1)[1]
     except:
-        return await message.reply_text("<b><u>ɪɴᴠᴀɪʟᴅ ꜰᴏʀᴍᴀᴛ!!</u>\n\nᴜsᴇ ʟɪᴋᴇ ᴛʜɪs - </b>\n<code>/caption Join [Here](https://telegram.me/MovieVillaYT)\n\nFILE : {file_name}\nSize : {file_size}</code>")
+        return await message.reply_text("<b><u>ɪɴᴠᴀɪʟᴅ ꜰᴏʀᴍᴀᴛ!!</u>\n\nᴜsᴇ ʟɪᴋᴇ ᴛʜɪs - </b>\n<code>/caption Join [Here](https://telegram.me/B4UMovieHouse)\n\nFILE : {file_name}\nSize : {file_size}</code>")
     await save_group_settings(grp_id, 'caption', caption)
     await message.reply_text(f"<b>sᴜᴄᴄᴇssꜰᴜʟʟʏ ᴄʜᴀɴɢᴇᴅ ᴄᴀᴘᴛɪᴏɴ ꜰᴏʀ {title} ᴛᴏ\n\n{caption}</b>", disable_web_page_preview=True) 
     
@@ -461,7 +461,7 @@ async def set_shortner(c, m):
     try:
         URL = m.command[1]
         API = m.command[2]
-        resp = requests.get(f'https://{URL}/api?api={API}&url=https://telegram.me/MovieVillaYT').json()
+        resp = requests.get(f'https://{URL}/api?api={API}&url=https://telegram.me/B4UMovieHouse').json()
         if resp['status'] == 'success':
             SHORT_LINK = resp['shortenedUrl']
         await save_group_settings(grp_id, 'shortner', URL)
@@ -641,7 +641,7 @@ async def set_shortner_3(c, m):
     try:
         URL = m.command[1]
         API = m.command[2]
-        resp = requests.get(f'https://{URL}/api?api={API}&url=https://youtube.com/@NobiDeveloper').json()
+        resp = requests.get(f'https://{URL}/api?api={API}&url=https://youtube.com/@Yaduvanshi_XD').json()
         if resp['status'] == 'success':
             SHORT_LINK = resp['shortenedUrl']
         await save_group_settings(grp_id, 'shortner_three', URL)
