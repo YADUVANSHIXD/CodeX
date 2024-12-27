@@ -21,7 +21,12 @@ import base64
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client:Client, message): 
     m = message
-    user_id = m.from_user.id
+    if m.from_user is None:
+    await m.reply_text("This command can only be used by a user.")
+    return
+
+user_id = m.from_user.id
+
     if len(m.command) == 2 and m.command[1].startswith('notcopy'):
         _, userid, verify_id, file_id = m.command[1].split("_", 3)
         user_id = int(userid)
