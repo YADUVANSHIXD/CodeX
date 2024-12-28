@@ -22,7 +22,7 @@ import base64
 async def start(client:Client, message): 
     m = message
     if m.from_user is None:
-    await m.reply_text("This command can only be used by a user.")
+        await m.reply_text("This command can only be used by a user.")
     return
 
 user_id = m.from_user.id
