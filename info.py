@@ -21,7 +21,7 @@ def is_enabled(value, default):
 API_ID = int(environ.get('API_ID', '29728878'))
 API_HASH = environ.get('API_HASH', 'a961168f7807061e77e1fb39c3f6ef71')
 BOT_TOKEN = environ.get('BOT_TOKEN', '')
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5294914915 7033385522').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5294914915 7986684117').split()]
 USERNAME = environ.get('USERNAME', 'https://telegram.me/B4UOwnerBot')
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002179479692'))
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002150820537 -1002235533210').split()]
@@ -34,22 +34,22 @@ QR_CODE = environ.get('QR_CODE', 'https://envs.sh/T-5.jpg')
 
 #this vars is for when heroku or koyeb acc get banned, then change this vars as your file to link bot name
 BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002480353700'))
-URL = environ.get('URL', 'specified-ricky-pwvidyapeeth-fe32bd8d.koyeb.app')
+URL = environ.get('URL', 'overall-nadine-themoviefilesbot-cd46cbbb.koyeb.app')
 
 # verify system vars
 IS_VERIFY = is_enabled('IS_VERIFY', True)
 LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-1002471108414'))
-TUTORIAL = environ.get("TUTORIAL", "https://t.me/How_to_open_movielink/15")
-TUTORIAL2 = environ.get("TUTORIAL2", "https://t.me/How_to_open_movielink/16")
-TUTORIAL3 = environ.get("TUTORIAL3", "https://t.me/How_to_open_movielink/14")
+TUTORIAL = environ.get("TUTORIAL", "https://t.me/How_to_open_movielink/18")
+TUTORIAL2 = environ.get("TUTORIAL2", "https://t.me/How_to_open_movielink/22")
+TUTORIAL3 = environ.get("TUTORIAL3", "https://t.me/How_to_open_movielink/17")
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://graph.org/file/45a270fc6a0a1c183c614.jpg")
-SHORTENER_API = environ.get("SHORTENER_API", "597e5e39d64825dedf5b43361e9a57e5d1ab6be5")
-SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", "shortxlinks.com")
-SHORTENER_API2 = environ.get("SHORTENER_API2", "ca5019b4393d23a4bcaa76f5a69dca2fb3876dec")
-SHORTENER_WEBSITE2 = environ.get("SHORTENER_WEBSITE2", "speedlinkurl.com")
-SHORTENER_API3 = environ.get("SHORTENER_API3", "1dacaa27ce824e44b95f1b6a11939575205d1fa9")
-SHORTENER_WEBSITE3 = environ.get("SHORTENER_WEBSITE3", "Instantearn.in")
-TWO_VERIFY_GAP = int(environ.get('TWO_VERIFY_GAP', "28800"))
+SHORTENER_API = environ.get("SHORTENER_API", "8a77b545e2c06c440d30e7dedccd234edd74ea34")
+SHORTENER_WEBSITE = environ.get("SHORTENER_WEBSITE", "indiaearnX.com")
+SHORTENER_API2 = environ.get("SHORTENER_API2", "c4fea41840e9405644de2572c5312a19a9e41286")
+SHORTENER_WEBSITE2 = environ.get("SHORTENER_WEBSITE2", "youlinks.in")
+SHORTENER_API3 = environ.get("SHORTENER_API3", "4030dd8b87e40fb381a15ce48c4a56555bed524e")
+SHORTENER_WEBSITE3 = environ.get("SHORTENER_WEBSITE3", "arlinks.in")
+TWO_VERIFY_GAP = int(environ.get('TWO_VERIFY_GAP', "21600"))
 THREE_VERIFY_GAP = int(environ.get('THREE_VERIFY_GAP', "21600"))
 
 # languages search
