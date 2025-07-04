@@ -37,7 +37,7 @@ BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002480353700'))
 URL = environ.get('URL', 'overall-nadine-themoviefilesbot-cd46cbbb.koyeb.app')
 
 # verify system vars
-IS_VERIFY = is_enabled('IS_VERIFY', False)
+IS_VERIFY = is_enabled('IS_VERIFY', True)
 LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-1002471108414'))
 TUTORIAL = environ.get("TUTORIAL", "https://t.me/How_to_open_movielink/17")
 TUTORIAL2 = environ.get("TUTORIAL2", "https://t.me/How_to_open_movielink/21")
