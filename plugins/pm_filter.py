@@ -1,25 +1,21 @@
-# © Yaduvanshi
+# © YaduvanshiXbotz [Yaduvanshi]
 import asyncio
-import logging
-import pytz
-import re, time
-import ast
+import re
 import math
-import string
-import random
-from datetime import datetime, timedelta
+import logging
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
-import pyrogram
-from info import MAX_BTN, BIN_CHANNEL, USERNAME, URL, IS_VERIFY, ADMINS, LANGUAGES, AUTH_CHANNEL, SUPPORT_GROUP, IMDB, IMDB_TEMPLATE, LOG_CHANNEL, LOG_VR_CHANNEL, QR_CODE, DELETE_TIME, PM_SEARCH
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto, ChatPermissions, WebAppInfo 
+from info import MAX_BTN, BIN_CHANNEL, USERNAME, URL, IS_VERIFY, LANGUAGES, AUTH_CHANNEL, SUPPORT_GROUP, QR_CODE, DELETE_TIME, PM_SEARCH, ADMINS
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, WebAppInfo 
 from pyrogram import Client, filters, enums
-from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid, ChatAdminRequired
-from utils import temp, get_settings, is_check_admin, get_status, get_hash, get_name, get_size, save_group_settings, get_poster, get_status, get_readable_time, get_shortlink
+from pyrogram.errors import MessageNotModified
+from utils import temp, get_settings, is_check_admin, get_status, get_hash, get_name, get_size, save_group_settings, get_poster, get_status, get_readable_time, get_shortlink, is_req_subscribed, imdb
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_search_results, get_bad_files, get_file_details
 
 lock = asyncio.Lock()
+
+logger = logging.getLogger(__name__)
 
 BUTTONS = {}
 FILES_ID = {}
@@ -35,7 +31,7 @@ async def pm_search(client, message):
                                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📝 Rᴇǫᴜᴇsᴛ ʜᴇʀᴇ", url=f'https://t.me/+cpHps_O8JAM4Y2I1')]]),
     disable_web_page_preview=True
 )
-           
+    
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def group_search(client, message):
     chat_id = message.chat.id
@@ -438,6 +434,33 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+
+    elif query.data.startswith("techifybots"):
+        ident, keyword = query.data.split("#")
+        await query.message.edit_text(f"<b>Fᴇᴛᴄʜɪɴɢ Fɪʟᴇs ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} ᴏɴ DB... Pʟᴇᴀsᴇ ᴡᴀɪᴛ...</b>")
+        files, total = await get_bad_files(keyword)
+        await query.message.edit_text(f"<b>Fᴏᴜɴᴅ {total} Fɪʟᴇs ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} !\n\nFɪʟᴇ ᴅᴇʟᴇᴛɪᴏɴ ᴘʀᴏᴄᴇss ᴡɪʟʟ sᴛᴀʀᴛ ɪɴ 5 sᴇᴄᴏɴᴅs!</b>")
+        await asyncio.sleep(5)
+        deleted = 0
+        async with lock:
+            try:
+                for file in files:
+                    file_ids = file.file_id
+                    file_name = file.file_name
+                    result = await Media.collection.delete_one({
+                        '_id': file_ids,
+                    })
+                    if result.deleted_count:
+                        logger.info(f'Fɪʟᴇ Fᴏᴜɴᴅ ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword}! Sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {file_name} ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ.')
+                        deleted += 1
+                        if deleted % 20 == 0:
+                            await query.message.edit_text(f"<b>Pʀᴏᴄᴇss sᴛᴀʀᴛᴇᴅ ғᴏʀ ᴅᴇʟᴇᴛɪɴɢ ғɪʟᴇs ғʀᴏᴍ DB. Sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {str(deleted)} ғɪʟᴇs ғʀᴏᴍ DB ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword} !\n\nPʟᴇᴀsᴇ ᴡᴀɪᴛ...</b>")
+            except Exception as e:
+                logger.exception(e)
+                await query.message.edit_text(f'Eʀʀᴏʀ: {e}')
+            else:
+                await query.message.edit_text(f"<b>Pʀᴏᴄᴇss Cᴏᴍᴘʟᴇᴛᴇᴅ ғᴏʀ ғɪʟᴇ ᴅᴇʟᴇᴛɪᴏɴ !\n\nSᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ {str(deleted)} ғɪʟᴇs ғʀᴏᴍ DB ғᴏʀ ʏᴏᴜʀ ᴏ̨ᴜᴇʀʏ {keyword}.</b>")
+
     elif query.data == "earn":
         buttons = [[
             InlineKeyboardButton('♻️ ᴄᴜꜱᴛᴏᴍɪᴢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ♻️', callback_data='custom')    
@@ -725,7 +748,7 @@ async def auto_filter(client, msg, spoll=False):
                 await message.reply_text(cap + links + del_msg, parse_mode=enums.ParseMode.HTML, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
     else:
         if message.chat.id == SUPPORT_GROUP:
-            buttons = [[InlineKeyboardButton('✧ ᴛᴀᴋᴇ ꜰɪʟᴇ ꜰʀᴏᴍ ʜᴇʀᴇ ✧', url="https://telegram.me/AllRequestGroups")]]
+            buttons = [[InlineKeyboardButton('✧ ᴛᴀᴋᴇ ꜰɪʟᴇ ꜰʀᴏᴍ ʜᴇʀᴇ ✧', url="https://telegram.me/B4UMOVIEZONE")]]
             d = await message.reply(text=f"<b>{message.from_user.mention},</b>\n\n({total_results}) ʀᴇsᴜʟᴛ ᴀʀᴇ ꜰᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ꜰᴏʀ ʏᴏᴜʀ sᴇᴀʀᴄʜ [{search}]\n\n", reply_markup=InlineKeyboardMarkup(buttons))
             await asyncio.sleep(120)
             await message.delete()
@@ -740,52 +763,90 @@ async def auto_filter(client, msg, spoll=False):
                 except:
                     pass
 
+async def ai_spell_check(wrong_name):
+    async def search_movie(name):
+        search_results = imdb.search_movie(name)
+        return [movie['title'] for movie in search_results]
+
+    movie_list = await search_movie(wrong_name)
+    if not movie_list:
+        return
+
+    for _ in range(5):
+        closest_match = process.extractOne(wrong_name, movie_list)
+        if not closest_match or closest_match[1] <= 80:
+            return
+        movie = closest_match[0]
+        files, offset, total_results = await get_search_results(movie)
+        if files:
+            return movie
+        movie_list.remove(movie)
+
+    return
+
 async def advantage_spell_chok(message):
-    mv_id = message.id
-    search = message.text
+    search_text = message.text
     chat_id = message.chat.id
+
     settings = await get_settings(chat_id)
-    query = re.sub(
-        r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|br((o|u)h?)*|^h(e|a)?(l)*(o)*|mal(ayalam)?|t(h)?amil|file|that|find|und(o)*|kit(t(i|y)?)?o(w)?|thar(u)?(o)*w?|kittum(o)*|aya(k)*(um(o)*)?|full\smovie|any(one)|with\ssubtitle(s)?)",
-        "", message.text, flags=re.IGNORECASE)
-    RQST = query.strip()
-    query = query.strip() + " movie"
+
+    cleaned_query = re.sub(
+        r"\b(pl(i|e)*?(s|z+|ease|se|ese|(e+)s(e)?)|((send|snd|giv(e)?|gib)(\sme)?)|movie(s)?|new|latest|br((o|u)h?)*|^h(e|a)?(l)*(o)*|mal(ayalam)?|t(h)?amil|file|that|find|und(o)*|kit(t(i|y)?)?o(w)?|thar(u)?(o)*w?|kittum(o)*|aya(k)*(um(o)*)?|full\smovie|any(one)?|with\ssubtitle(s)?)",
+        "", search_text, flags=re.IGNORECASE).strip()
+
+    query = f"{cleaned_query} movie"
+
     try:
-        movies = await get_poster(search, bulk=True)
+        movies = await get_poster(search_text, bulk=True)
     except:
-        k = await message.reply(script.I_CUDNT.format(message.from_user.mention))
+        error_msg = await message.reply(script.I_CUDNT.format(message.from_user.mention))
         await asyncio.sleep(60)
-        await k.delete()
+        await error_msg.delete()
         try:
             await message.delete()
         except:
             pass
         return
+
     if not movies:
-        google = search.replace(" ", "+")
-        button = [[
-            InlineKeyboardButton("🔍 ᴄʜᴇᴄᴋ sᴘᴇʟʟɪɴɢ ᴏɴ ɢᴏᴏɢʟᴇ 🔍", url=f"https://www.google.com/search?q={google}")
-        ]]
-        k = await message.reply_text(text=script.I_CUDNT.format(search), reply_markup=InlineKeyboardMarkup(button))
-        await asyncio.sleep(120)
-        await k.delete()
-        try:
-            await message.delete()
-        except:
-            pass
-        return
-    user = message.from_user.id if message.from_user else 0
+        corrected_name = await ai_spell_check(search_text)
+
+        if corrected_name and corrected_name.lower() != search_text.lower():
+            try:
+                movies = await get_poster(corrected_name, bulk=True)
+            except:
+                movies = None
+
+        if not movies:
+            google_link = search_text.replace(" ", "+")
+            button = [[
+                InlineKeyboardButton("🔍 ᴄʜᴇᴄᴋ sᴘᴇʟʟɪɴɢ ᴏɴ ɢᴏᴏɢʟᴇ 🔍", url=f"https://www.google.com/search?q={google_link}")
+            ]]
+            reply = await message.reply_text(script.I_CUDNT.format(search_text), reply_markup=InlineKeyboardMarkup(button))
+            await asyncio.sleep(120)
+            await reply.delete()
+            try:
+                await message.delete()
+            except:
+                pass
+            return
+
+    user_id = message.from_user.id if message.from_user else 0
     buttons = [[
-        InlineKeyboardButton(text=movie.get('title'), callback_data=f"spol#{movie.movieID}#{user}")
-    ]
-        for movie in movies
-    ]
-    buttons.append(
-        [InlineKeyboardButton(text="🚫 ᴄʟᴏsᴇ 🚫", callback_data='close_data')]
+        InlineKeyboardButton(text=movie.get('title'), callback_data=f"spol#{movie.movieID}#{user_id}")
+    ] for movie in movies]
+
+    buttons.append([
+        InlineKeyboardButton("🚫 ᴄʟᴏsᴇ 🚫", callback_data='close_data')
+    ])
+
+    final_reply = await message.reply_text(
+        text=script.CUDNT_FND.format(message.from_user.mention),
+        reply_markup=InlineKeyboardMarkup(buttons),
+        reply_to_message_id=message.id
     )
-    d = await message.reply_text(text=script.CUDNT_FND.format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), reply_to_message_id=message.id)
     await asyncio.sleep(120)
-    await d.delete()
+    await final_reply.delete()
     try:
         await message.delete()
     except:

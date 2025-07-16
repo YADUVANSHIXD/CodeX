@@ -6,9 +6,9 @@ from database.users_chats_db import db
 from database.ia_filterdb import Media, get_files_db_size
 from utils import get_size, temp
 from Script import script
-from datetime import datetime
 import psutil
 import time
+import os
 
 @Client.on_message(filters.new_chat_members & filters.group)
 async def save_group(bot, message):
@@ -21,7 +21,7 @@ async def save_group(bot, message):
             await bot.send_message(LOG_CHANNEL, script.NEW_GROUP_TXT.format(message.chat.title, message.chat.id, message.chat.username, group_link, total, user), disable_web_page_preview=True)  
             await db.add_chat(message.chat.id, message.chat.title)
             btn = [[
-                InlineKeyboardButton('🦸‍♀️  sᴜᴘᴘᴏʀᴛ  🦸‍♀️', url="https://telegram.me/YaduvanshiXSupport")
+                InlineKeyboardButton('🦸‍♀️  sᴜᴘᴘᴏʀᴛ  🦸‍♀️', url="https://telegram.me/YaduvanshiXsupport")
             ]]
             reply_markup=InlineKeyboardMarkup(btn)
             await bot.send_message(
@@ -68,8 +68,10 @@ async def list_groups(bot, message):
     total_chats = 0
     out = "Groups saved in the database are:\n\n"
     async for chat in chats:
-        out += f"<b>Title - `{chat['title']}`\nID - `{chat['id']}`</b>"
-        if chat['chat_status']['is_disabled']:
+        title = chat.get('title', 'Unknown')  # Safe way to access title
+        chat_id = chat.get('id', 'Unknown ID')
+        out += f"<b>Title - `{title}`\nID - `{chat_id}`</b>"
+        if chat.get('chat_status', {}).get('is_disabled'):
             out += ' (Disabled Chat)'
         out += '\n\n'
         total_chats += 1
@@ -77,7 +79,7 @@ async def list_groups(bot, message):
     try:
         await msg.edit_text(out)
     except MessageTooLong:
-        with open('groups.txt', 'w+') as outfile:
+        with open('groups.txt', 'w+', encoding='utf-8') as outfile:
             outfile.write(out)
         await message.reply_document('groups.txt', caption="List of Groups")
         await msg.delete()
