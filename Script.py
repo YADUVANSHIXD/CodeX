@@ -85,7 +85,7 @@ User - {}"""
 
     PREMIUM_TEXT = """<b><i><blockquote>ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀɴs  ♻️</blockquote>
 
-• 𝟷 ᴡᴇᴇᴋ  -  ₹𝟶𝟽
+• 𝟷 ᴡᴇᴇᴋ  -  ₹𝟷𝟶
 • 𝟷 ᴍᴏɴᴛʜ  -  ₹𝟸𝟻
 • 𝟹 ᴍᴏɴᴛʜs  -  ₹𝟼𝟶
 • 𝟼 ᴍᴏɴᴛʜs  -  ₹𝟷𝟶𝟶
@@ -104,7 +104,7 @@ User - {}"""
 •─────•─────────•─────•
 
 
-✨ ᴜᴘɪ ɪᴅ - <code>pradeepyadav916114@oksbi</code>
+✨ ᴜᴘɪ ɪᴅ - <code>b4umoviezone@ptaxis</code>
 
 ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴘʟᴀɴ  /myplan
 
